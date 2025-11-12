@@ -1,0 +1,101 @@
+
+/* Styles simples pour User.jsx */
+:root{
+	--card-bg: #ffffff;
+	--muted: #6b7280;
+	--accent: #2563eb;
+	--border: #e6e9ef;
+}
+
+.user-card{
+	max-width: 420px;
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 14px;
+	box-shadow: 0 6px 18px rgba(32,33,36,0.06);
+	margin: 12px auto;
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	color: #111827;
+}
+
+.user-card .header{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.user-card .picture{
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	overflow: hidden;
+	flex: 0 0 64px;
+	border: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f8fafc;
+}
+
+.user-card .picture img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.user-card .name{
+	font-size: 1.05rem;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.user-card .content{
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-size: 0.95rem;
+}
+
+.user-card .job,
+.user-card .email{
+	color: var(--muted);
+	background: #fcfdff;
+	padding: 8px 10px;
+	border-radius: 8px;
+	border: 1px solid transparent;
+}
+
+.user-card .job{
+	display: inline-block;
+}
+
+.user-card .email{
+	word-break: break-word;
+}
+
+/* hover state pour la carte */
+.user-card:hover{
+	transform: translateY(-3px);
+	transition: transform 180ms ease, box-shadow 180ms ease;
+	box-shadow: 0 10px 30px rgba(32,33,36,0.10);
+}
+
+/* petites tailles d'écran */
+@media (max-width: 440px){
+	.user-card{
+		padding: 12px;
+		margin: 8px;
+	}
+	.user-card .picture{
+		width: 54px;
+		height: 54px;
+		flex: 0 0 54px;
+	}
+	.user-card .name{
+		font-size: 1rem;
+	}
+}
+
