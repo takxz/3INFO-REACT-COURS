@@ -8,7 +8,7 @@ export default function Count() {
 
     return (
         <div className="count">
-            <button onClick={()=> setCount(count+1)}>{count} clicks </button>
+            <button onClick={()=> setCount((prev) => prev + 1)}>{count} clicks </button>
         </div>
 
     )
