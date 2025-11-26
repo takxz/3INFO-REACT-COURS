@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import './Login.css';
-export default function Login() {
+
+export default function Login({ }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
+    const sendLogin = () => {
+            console.log({
+                email,
+                password
+            })
+    }
     return (
         <div className=''>
             <div className="form">
@@ -16,10 +22,9 @@ export default function Login() {
                 <div className="form-group">
                     <label htmlFor="password">Mot de passe</label>
                     <input type="password" name="password" id="password" onKeyUp={(e) => setPassword(e.target.value)}/>
-                    {password}
                 </div>
                 <div className="form-group">
-                    <button>Connexion</button>
+                    <button onClick={sendLogin}>Connexion</button>
                 </div>
             </div>
         </div>
