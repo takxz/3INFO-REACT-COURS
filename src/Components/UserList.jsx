@@ -38,6 +38,5 @@ export default function UserList({ }) {
             </div>
             <Pagination pageCount={pageCount} setPage={setPage} />
         </div>
-
     )
 }

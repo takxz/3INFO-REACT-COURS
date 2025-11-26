@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import './App.css'
 import Input from './Components/Input';
-import UserList from './Components/Userlist';
+import UserList from './Components/UserList';
+import Login from './Components/Login';
+import UserDetail from './Components/UserDetail';
+import { BrowserRouter, Routes, Route, Link } from 'react-router';
+import UserLayout from './Components/UserLayout';
 
 
 export default function App() {
@@ -13,34 +17,17 @@ export default function App() {
   return (
     <div className="welcome">
       Bienvenu sur ce site.
-      <UserList />
-      {/* <Input
-        label="Email"
-        id="email"
-        type="email"
-        name="email"
-        onKeyUp={(data) => setEmail(data)}
-        format={/(.*)@(.*)/}
-        errorMsg="L'adresse email doit comporter un @"
-      />
-      <Input
-        label="Mot de passe"
-        id="password"
-        type="password"
-        name="password"
-        onKeyUp={(data) => setPassword(data)}
-        format={/[a-zA-Z0-9]{6,}/}
-        errorMsg="Le mot de passe peut contenir des minuscules, majuscules nombres et doit faire au moins 6 caractères"
-      />
-      <Input
-        label="Age"
-        id="age"
-        type="number"
-        name="age"
-        onKeyUp={(data) => setAge(data)}
-        format={/[0-9]
-        errorMsg="L'age doit être un nombre positif"
-        />*/}
+      <BrowserRouter>
+      <Link to="/">Home</Link>
+      <Link to="/User">User</Link>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/User" element={<UserLayout />}>
+            <Route index element={<UserList />} />
+            <Route path=':id' element={<UserDetail />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

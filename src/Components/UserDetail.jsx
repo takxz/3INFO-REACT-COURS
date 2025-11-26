@@ -1,9 +1,18 @@
-import { Link } from 'react-router';
-import './User.css';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 
-export default function User({user}){
+export default function UserDetail(){
+    const {id} = useParams();
+    const [user, setUser] = useState({});
+
+useEffect(() => {
+    fetch(`http://localhost:3000/user/${id}`)
+    .then(result => result.json())
+    .then(data => setUser(data)); 
+}, []);
+
     return (
-        <Link to={`/User/${user.id}`} className='user'>
+        <div className='user'>
             <div className="header">
                 <div className="picture">
                     <img src={user.imageUrl}  />
@@ -14,6 +23,6 @@ export default function User({user}){
                 <div className="email">{user.email}</div>
                 <div className="email">{user.jobTitle}</div>
             </div>
-        </Link>
+        </div>
     )
 }
